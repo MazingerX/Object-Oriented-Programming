@@ -14,15 +14,28 @@ namespace ACM.BL
         {
             get
             {
-                return LastName + ", " + FirstName;
+                string fullName = LastName;
+                if (!string.IsNullOrWhiteSpace(FirstName))
+                {
+                    if (!string.IsNullOrWhiteSpace(fullName))
+                        {
+                        fullName += ", ";
+                        }
+                fullName += FirstName;
+                }
+                return fullName;
             }
         }
 
-        private string _lastName;
+        public static int InstanceCount { get; set; }
 
+        private string _lastName;
         public string LastName
         {
-            get => _lastName;
+            get
+            {
+                return _lastName;
+            }
             set
             {
                 _lastName = value;
