@@ -1,9 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ACM.BL
 {
     public class Customer
     {
+        // Constructors
+        public Customer()
+        {
+
+        }
+        public Customer(int customerId)
+        {
+            CustomerId = customerId;
+        }
+
+
+        // Properties
         public int CustomerId { get; private set; }
 
         public string EmailAddress { get; set; }
@@ -41,5 +54,55 @@ namespace ACM.BL
                 _lastName = value;
             }
         }
+
+        /// <summary>
+        /// Retrieve one customer
+        /// </summary>
+        public Customer Retrieve(int CustomerId)
+        {
+            // Code that retrieves the defined customer
+
+            return new Customer();
+        }
+
+
+        /// <summary>
+        /// Retrieve all customers
+        /// </summary>
+        public List<Customer> Retrieve()
+        {
+            // Code that retrieves all of the customers
+
+            return new List<Customer>();
+        }
+
+
+        /// <summary>
+        /// Saves the current customer
+        /// </summary>
+        /// <returns></returns>
+        public bool Save()
+        {
+            // Code that saves the defined customer
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Validates the customer data
+        /// </summary>
+        /// <returns></returns>
+        public bool Validate()
+        {
+            var isValid = true;
+
+            if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
+            if (string.IsNullOrWhiteSpace(EmailAddress)) isValid = false;
+
+            return isValid;
+        }
+
+
     }
 }
