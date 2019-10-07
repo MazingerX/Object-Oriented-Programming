@@ -8,15 +8,15 @@ namespace ACM.BL
 
         }
 
-        public Address(string addressId)
+        public Address(int addressId)
         {
             AddressId = addressId;
         }
 
 
         // Properties
-        public string AddressId { get; private set; }
-        public string AddressType { get; set; }
+        public int AddressId { get; private set; }
+        public int AddressType { get; set; }
         public string StreetLine1 { get; set; }
         public string StreetLine2 { get; set; }
         public string City { get; set; }

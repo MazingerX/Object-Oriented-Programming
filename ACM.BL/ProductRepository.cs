@@ -23,6 +23,10 @@ namespace ACM.BL
                 product.ProductDescription = "Assorted size set of 4 yellow";
                 product.CurrentPrice = 15.96M;
             }
+
+            Object myObject = new object();
+            Console.WriteLine($"Object: {myObject.ToString()}");
+            Console.WriteLine($"Product: {product.ToString()}");
             return product;
         }
 
@@ -30,11 +34,30 @@ namespace ACM.BL
         /// <summary>
         /// Saves the current product.
         /// </summary>
-        public bool Save()
+        /// <returns></returns>
+        public bool Save(Product product)
         {
-            // Code that saves the passed in product
+            var success = true;
 
-            return true;
+            if (product.HasChanges)
+            {
+                if (product.IsValid)
+                {
+                    if (product.IsNew)
+                    {
+                        // Call a Insert Store Procedure
+                    }
+                    else
+                    {
+                        // Call an Update Store Procedure
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+            return success;
         }
     }
 }

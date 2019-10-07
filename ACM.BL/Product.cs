@@ -2,7 +2,7 @@
 
 namespace ACM.BL
 {
-    public class Product
+    public class Product : EntityBase
     {
         //Constructors
 
@@ -25,14 +25,27 @@ namespace ACM.BL
 
         public decimal? CurrentPrice { get; set; }
 
-        public string ProductName { get; set; }
-      
+        private string _productName;
+        public string ProductName
+        {
+            get
+            {
+                return _productName.InsertSpaces();
+            }
+            set
+            {
+                _productName = value;
+            }
+        }
+
+        public override string ToString() => ProductName;
+
 
         /// <summary>
         /// Validates the product data.
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
