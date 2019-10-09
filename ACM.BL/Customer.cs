@@ -61,6 +61,18 @@ namespace ACM.BL
             }
         }
 
+
+        //public string Log()
+        //{
+        // var logString = CustomerId + ": " + Fullname + " " + "Email: " +
+        //                 EmailAddress + " " + "Status: " + EntityState.ToString();
+        // return logString;
+
+
+        public string Log() =>
+            $"{CustomerId}: {FullName} Email: {EmailAddress} Status: {EntityState.ToString()}";
+
+
         public override string ToString() => FullName;
 
         /// <summary>

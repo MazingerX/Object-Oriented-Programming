@@ -1,4 +1,5 @@
 ﻿using System;
+using Acme.Common;
 
 namespace ACM.BL
 {
@@ -37,6 +38,11 @@ namespace ACM.BL
                 _productName = value;
             }
         }
+
+
+        public string Log() =>
+            $"{ProductId}: {ProductName} Detail: {ProductDescription} Status: {EntityState.ToString()};"
+
 
         public override string ToString() => ProductName;
 
